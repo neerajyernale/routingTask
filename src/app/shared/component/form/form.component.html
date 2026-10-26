@@ -8,32 +8,39 @@
                 <div class="form-group">
                     <label for="name">User Name*</label>
                     <input type="text" class="form-control" formControlName="name">
+                    <small class="text-danger" *ngIf="f['name'].touched && f['name'].hasError('required')">Name is required.</small>
                 </div>
                 <div class="form-group">
                     <label for="role">User Role*</label>
                     <select class="form-control" formControlName="role">
+                        <option value="">Select a role</option>
                         <option value="Manager">Manager</option>
                         <option value="UI/UX Designer">UI/UX Designer</option>
                         <option value="Frontend Developer">Frontend Developer</option>
                         <option value="Backend Developer">Backend Developer</option>
                         <option value="QA Engineer">QA Engineer</option>
                     </select>
+                    <small class="text-danger" *ngIf="f['role'].touched && f['role'].hasError('required')">Role is required.</small>
                 </div>
                 <div class="form-group">
                     <label for="name">User Experinece*</label>
                     <input type="text" class="form-control" formControlName="experience">
+                    <small class="text-danger" *ngIf="f['experience'].touched && f['experience'].hasError('required')">Experience is required.</small>
                 </div>
                  <div class="form-group">
                     <label for="name">User Image*</label>
                     <input type="text" class="form-control" formControlName="imageUrl">
+                    <small class="text-danger" *ngIf="f['imageUrl'].touched && f['imageUrl'].hasError('required')">Image URL is required.</small>
                 </div>
                  <div class="form-group">
                     <label for="name">User Status*</label>
                     <input type="text" class="form-control" formControlName="status">
+                    <small class="text-danger" *ngIf="f['status'].touched && f['status'].hasError('required')">Status is required.</small>
                 </div>
                  <div class="form-group">
                     <label for="name">User Description*</label>
                     <textarea rows="4" class="form-control" formControlName="description"></textarea>
+                    <small class="text-danger" *ngIf="f['description'].touched && f['description'].hasError('required')">Description is required.</small>
                 </div>
                 <div class="form-row">
                     <div class="col-md-6">
@@ -41,12 +48,16 @@
                         <div formGroupName="currentAddress" class="form-group">
                             <label for="country">Country*</label>
                             <input type="text" class="form-control" formControlName="country">
+                            <small class="text-danger" *ngIf="f['currentAddress'].get('country')?.touched && f['currentAddress'].get('country')?.hasError('required')">Country is required.</small>
                             <label for="country">State*</label>
                             <input type="text" class="form-control" formControlName="state">
+                            <small class="text-danger" *ngIf="f['currentAddress'].get('state')?.touched && f['currentAddress'].get('state')?.hasError('required')">State is required.</small>
                             <label for="country">City*</label>
                             <input type="text" class="form-control" formControlName="city">
+                            <small class="text-danger" *ngIf="f['currentAddress'].get('city')?.touched && f['currentAddress'].get('city')?.hasError('required')">City is required.</small>
                             <label for="country">Zipcode*</label>
                             <input type="text" class="form-control" formControlName="zipcode">
+                            <small class="text-danger" *ngIf="f['currentAddress'].get('zipcode')?.touched && f['currentAddress'].get('zipcode')?.hasError('required')">Zipcode is required.</small>
                         </div>
                     </div>
                 <div class="col-md-6">
@@ -54,12 +65,16 @@
                     <div class="form-group" formGroupName="permantAddress">
                             <label for="country">Country*</label>
                             <input type="text" class="form-control" formControlName="country">
+                            <small class="text-danger" *ngIf="f['permantAddress'].get('country')?.touched && f['permantAddress'].get('country')?.hasError('required')">Country is required.</small>
                             <label for="country">State*</label>
                             <input type="text" class="form-control" formControlName="state">
+                            <small class="text-danger" *ngIf="f['permantAddress'].get('state')?.touched && f['permantAddress'].get('state')?.hasError('required')">State is required.</small>
                             <label for="country">City*</label>
                             <input type="text" class="form-control" formControlName="city">
+                            <small class="text-danger" *ngIf="f['permantAddress'].get('city')?.touched && f['permantAddress'].get('city')?.hasError('required')">City is required.</small>
                             <label for="country">Zipcode*</label>
                             <input type="text" class="form-control" formControlName="zipcode">
+                            <small class="text-danger" *ngIf="f['permantAddress'].get('zipcode')?.touched && f['permantAddress'].get('zipcode')?.hasError('required')">Zipcode is required.</small>
                     </div>
                 </div>
                 </div>
@@ -70,6 +85,7 @@
                     <div class="col-10">
                         <div class="form-group">
                             <input type="text" class="form-control" [formControlName]="i" >
+                            <small class="text-danger" *ngIf="skill.touched && skill.hasError('required')">Skill is required.</small>
                         </div>
                     </div>
                     <div class="col-2">
