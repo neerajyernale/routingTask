@@ -43,12 +43,12 @@ export class FormComponent implements OnInit {
 
   createForm(){
   this.UserForm =  new FormGroup({
-    name: new FormControl(),
-    role: new FormControl(),
-    description: new FormControl(),
-    imageUrl: new FormControl(),
-    experience: new FormControl(),
-    status: new FormControl(),
+    name: new FormControl(null, [Validators.required]),
+    role: new FormControl(null, [Validators.required]),
+    description: new FormControl(null, [Validators.required]),
+    imageUrl: new FormControl(null, [Validators.required]),
+    experience: new FormControl(null, [Validators.required]),
+    status: new FormControl(null, [Validators.required]),
    
       currentAddress: new FormGroup({
         country: new FormControl(null,[Validators.required]),
@@ -168,6 +168,11 @@ onUserAdd(){
 }
   
 onUpdate(){
+  if(this.UserForm.invalid){
+    this.UserForm.markAllAsTouched();
+    return;
+  }
+
   const updateObj: Iuser = {
     ...this.UserForm.getRawValue(),
     Uid: this.userId,
