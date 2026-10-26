@@ -1,0 +1,98 @@
+<div class="container">
+    <div class="row">
+        <div class="card">
+            <div class="card-header span badge-info">User Form</div>
+            <div class="card-body">
+                <div class="col-12">
+            <form [formGroup]="UserForm" (ngSubmit)="onUserAdd()">
+                <div class="form-group">
+                    <label for="name">User Name*</label>
+                    <input type="text" class="form-control" formControlName="name">
+                </div>
+                <div class="form-group">
+                    <label for="role">User Role*</label>
+                    <select class="form-control" formControlName="role">
+                        <option value="Manager">Manager</option>
+                        <option value="UI/UX Designer">UI/UX Designer</option>
+                        <option value="Frontend Developer">Frontend Developer</option>
+                        <option value="Backend Developer">Backend Developer</option>
+                        <option value="QA Engineer">QA Engineer</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="name">User Experinece*</label>
+                    <input type="text" class="form-control" formControlName="experience">
+                </div>
+                 <div class="form-group">
+                    <label for="name">User Image*</label>
+                    <input type="text" class="form-control" formControlName="imageUrl">
+                </div>
+                 <div class="form-group">
+                    <label for="name">User Status*</label>
+                    <input type="text" class="form-control" formControlName="status">
+                </div>
+                 <div class="form-group">
+                    <label for="name">User Description*</label>
+                    <textarea rows="4" class="form-control" formControlName="description"></textarea>
+                </div>
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <h1 class="span badge-info">currentAddress</h1>
+                        <div formGroupName="currentAddress" class="form-group">
+                            <label for="country">Country*</label>
+                            <input type="text" class="form-control" formControlName="country">
+                            <label for="country">State*</label>
+                            <input type="text" class="form-control" formControlName="state">
+                            <label for="country">City*</label>
+                            <input type="text" class="form-control" formControlName="city">
+                            <label for="country">Zipcode*</label>
+                            <input type="text" class="form-control" formControlName="zipcode">
+                        </div>
+                    </div>
+                <div class="col-md-6">
+                    <h1 class="span badge-info">permantAddress</h1>
+                    <div class="form-group" formGroupName="permantAddress">
+                            <label for="country">Country*</label>
+                            <input type="text" class="form-control" formControlName="country">
+                            <label for="country">State*</label>
+                            <input type="text" class="form-control" formControlName="state">
+                            <label for="country">City*</label>
+                            <input type="text" class="form-control" formControlName="city">
+                            <label for="country">Zipcode*</label>
+                            <input type="text" class="form-control" formControlName="zipcode">
+                    </div>
+                </div>
+                </div>
+                
+                <label for="checkbox"><input id="checkbox" type="checkbox" formControlName="checkbox">The current Address and permant Address should be same</label>
+                <div formArrayName="skills">
+                    <div class="form-row" *ngFor="let skill of skills.controls; let i = index">
+                    <div class="col-10">
+                        <div class="form-group">
+                            <input type="text" class="form-control" [formControlName]="i" >
+                        </div>
+                    </div>
+                    <div class="col-2">
+                        <button type="button" class="btn btn-danger" *ngIf="i>0" (click)="onRemove(i)">Remove</button>
+                    </div>
+                    </div>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <button type="button"
+                class="btn btn-primary"
+                *ngIf="skills.controls.length < 5"
+                (click)="onAddSkill()"
+                >
+                Add Skill
+                </button>
+                <button type="button" class="btn btn-primary ml-5" *ngIf="isInEditMode" (click)="onUpdate()">Update</button>
+                <button type="submit" class="btn btn-primary" *ngIf="!isInEditMode">Add User</button>
+                </div>
+                
+            </form>
+        </div>
+            </div>
+        </div>
+        
+    </div>
+</div>

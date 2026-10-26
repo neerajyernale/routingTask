@@ -1,0 +1,53 @@
+<div class="row d-flex justify-content-between" >  
+        <div class="col-md-4">
+        <mat-card class="user-card">
+  <mat-card-title-group>   
+  </mat-card-title-group>
+  <mat-card-content>
+     <img mat-card-image [src]="user.imageUrl" alt="" >
+  </mat-card-content>
+  <div>  
+  <strong>{{user.name}}</strong>
+  <span>({{user.role}})</span>
+    </div>
+    <mat-card-actions class="d-flex justify-content-between align-items-between">
+        <button mat-raised-button color="primary" routerLink="edit" (click)="editUser()">Edit</button>
+        <button mat-raised-button color="warn" (click)="onRemove()"  >Delete</button>
+    </mat-card-actions>
+</mat-card>
+
+        </div>
+  
+
+    <div class="col-md-8">
+        <button class="btn btn-outline-info" routerLink="/users">Back to User List</button>
+        <mat-card class="mt-5">
+            <h1>Basic Information:</h1>
+            <p>Experience:{{user.experience}}</p>
+            <p>User Is Active:{{user.status ? "Yes" : "No"}}</p>
+        </mat-card>
+        <mat-card class="mt-5">
+            <mat-chip-list aria-label="Fish selection" *ngFor="let skill of user.skills">
+  <mat-chip>{{skill}}</mat-chip>
+</mat-chip-list>
+        </mat-card>
+        <mat-card class="mt-5 mb-3">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1>Current Address:</h1>
+                    <p><strong>Country:</strong>{{user.currentAddress.country}}</p>
+                    <p><strong>State:</strong>{{user.currentAddress.state}}</p>
+                    <p><strong>City:</strong>{{user.currentAddress.city}}</p>
+                    <p><strong>Zipcode:</strong>{{user.currentAddress.zipcode}}</p>                   
+                </div>
+                <div class="col-md-6">
+                    <h1>Permant Address:</h1>
+                    <p><strong>Country:</strong>{{user.permanentAddress.country}}</p>
+                    <p><strong>State:</strong>{{user.permanentAddress.state}}</p>
+                    <p><strong>City:</strong>{{user.permanentAddress.city}}</p>
+                    <p><strong>Zipcode:</strong>{{user.permanentAddress.zipcode}}</p>
+                </div>
+            </div>
+        </mat-card>
+    </div>
+      </div>

@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>Conform Delete</h2>
+<mat-card-content>
+    <p>{{data.message}}</p>
+</mat-card-content>
+<mat-card-actions>
+    <div class="d-flex justify-content-between">
+        <button mat-raised-button (click)="onCancle()">Cancle</button>
+        <button mat-raised-button color="warn" (click)="onConform()">Delete</button>
+
+    </div>
+</mat-card-actions>
